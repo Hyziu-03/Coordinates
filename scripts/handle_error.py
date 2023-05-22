@@ -1,17 +1,15 @@
 import PySimpleGUI as sg
+from layouts import error
 
 def display_error_window():
-    layout = [
-        [ sg.Text("Script received invalid input ❌"), ],
-        [ sg.Button("Cancel"), ],
-    ]
+    try:
+        layout = error
+        window = sg.Window("CRS converter", layout)
 
-    window = sg.Window("CRS converter", layout)
+        while (True):
+            event, values = window.read()
+            if (event in (sg.WIN_CLOSED, "Cancel")): break
 
-    while (True):
-        event, values = window.read()
-        
-        if (event == sg.WIN_CLOSED or event == "Cancel"):
-            break
-
-    window.close()
+        window.close()
+    except:
+        return 
