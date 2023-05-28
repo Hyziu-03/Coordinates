@@ -3,7 +3,7 @@ from handle_error import display_error_window
 from receive_code import receive_code
 from pyproj import Transformer
 import PySimpleGUI as sg
-from styles import font, dark_color
+from styles import font, dark_color, text_color
 
 
 def main():
@@ -42,7 +42,7 @@ def main():
     # Output CRS
 
     layout = output_crs
-    window = sg.Window("CRS converter", layout)
+    window = sg.Window("CRS converter", layout, background_color=dark_color)
 
     while (True):
         event, values = window.read()
@@ -71,7 +71,7 @@ def main():
     # Coordinates
 
     layout = coords
-    window = sg.Window("CRS converter", layout)
+    window = sg.Window("CRS converter", layout, background_color=dark_color)
 
     while (True):
         event, values = window.read()
@@ -105,19 +105,22 @@ def main():
 
     layout = [
         [sg.Text("Transformed coordinates", 
-            font=font
+            font=font,
+            background_color=dark_color
         ), ],
         [sg.Text(f"Longitude: {coordinates[0]}", 
-            font=font
+            font=font,
+            background_color=dark_color
         ), ],
         [sg.Text(f"Latitude: {coordinates[1]}", 
-            font=font
+            font=font,
+            background_color=dark_color
         ), ],
         [sg.Button("Cancel", 
-            font=font
+            font=font,
         ), ],
     ]
-    window = sg.Window("CRS converter", layout)
+    window = sg.Window("CRS converter", layout, background_color=dark_color)
 
     while (True):
         event, values = window.read()
