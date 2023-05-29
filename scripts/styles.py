@@ -1,3 +1,5 @@
 font = ("Fixedsys", 12)
-text_color = "#efefef"
-dark_color = "#2a2a2a"
+white = "#efefef"
+black = "#2a2a2a"
+
+icon_path = "C:/Users/szymo/Documents/GitHub/Coordinates/icon/icon.ico"
