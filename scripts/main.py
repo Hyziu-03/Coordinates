@@ -1,9 +1,11 @@
-from layouts import input_crs, output_crs, coords
+# Pin icon created by Freepik - Flaticon
+
+from layouts import input_crs, output_crs, coords, name, ratio_16x9
 from handle_error import display_error_window
 from receive_code import receive_code
 from pyproj import Transformer
 import PySimpleGUI as sg
-from styles import font, dark_color, text_color
+from styles import font, black, icon_path
 
 
 def main():
@@ -13,7 +15,13 @@ def main():
     # Input CRS
 
     layout = input_crs
-    window = sg.Window("CRS converter", layout, background_color=dark_color)
+    window = sg.Window(
+        name, 
+        layout, 
+        background_color=black, 
+        size=ratio_16x9, 
+        icon=icon_path
+    )
 
     while (True):
         event, values = window.read()
@@ -42,7 +50,13 @@ def main():
     # Output CRS
 
     layout = output_crs
-    window = sg.Window("CRS converter", layout, background_color=dark_color)
+    window = sg.Window(
+        name, 
+        layout, 
+        background_color=black, 
+        size=ratio_16x9,
+        icon=icon_path
+    )
 
     while (True):
         event, values = window.read()
@@ -71,7 +85,13 @@ def main():
     # Coordinates
 
     layout = coords
-    window = sg.Window("CRS converter", layout, background_color=dark_color)
+    window = sg.Window(
+        name, 
+        layout, 
+        background_color=black, 
+        size=ratio_16x9,
+        icon=icon_path
+    )
 
     while (True):
         event, values = window.read()
@@ -104,23 +124,37 @@ def main():
     coordinates = transformer.transform(longitude, latitude)
 
     layout = [
-        [sg.Text("Transformed coordinates", 
-            font=font,
-            background_color=dark_color
-        ), ],
-        [sg.Text(f"Longitude: {coordinates[0]}", 
-            font=font,
-            background_color=dark_color
-        ), ],
-        [sg.Text(f"Latitude: {coordinates[1]}", 
-            font=font,
-            background_color=dark_color
-        ), ],
-        [sg.Button("Cancel", 
-            font=font,
-        ), ],
+        [
+            sg.Text("Transformed coordinates", 
+                font=font,
+                background_color=black
+            ), 
+        ],
+        [
+            sg.Text(f"Longitude: {coordinates[0]}", 
+                font=font,
+                background_color=black
+            ), 
+        ],
+        [
+            sg.Text(f"Latitude: {coordinates[1]}", 
+                font=font,
+                background_color=black
+            ), 
+        ],
+        [
+            sg.Button("Cancel", 
+                font=font,
+            ), 
+        ],
     ]
-    window = sg.Window("CRS converter", layout, background_color=dark_color)
+    window = sg.Window(
+        name, 
+        layout, 
+        background_color=black, 
+        size=ratio_16x9,
+        icon=icon_path
+    )
 
     while (True):
         event, values = window.read()
