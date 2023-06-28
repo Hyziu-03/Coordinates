@@ -16,5 +16,5 @@ def receive_code(code):
         else:
             raise ValueError
         return code
-    except:
+    except ValueError:
         return 0
