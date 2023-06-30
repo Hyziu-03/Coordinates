@@ -1,11 +1,9 @@
-epsg_codes = {
-    "pseudo_mercator": 3857,
-    "world_geodetic_system": 4326,
-    "poland_cs1992": 2180
-}
-
-
 def receive_code(code):
+    epsg_codes = {
+        "pseudo_mercator": 3857,
+        "world_geodetic_system": 4326,
+        "poland_cs1992": 2180
+    }   
     try:
         if (code == 1):
             code = epsg_codes["pseudo_mercator"]
